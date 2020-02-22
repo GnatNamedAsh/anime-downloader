@@ -120,7 +120,7 @@ class NineAnime(Anime, sitename='9anime'):
         params['_'] = int(generate_(params))
         params['_'] = 648
         soup = helpers.soupify(helpers.get(api_url, params=params).json()['html'])
-        episodes = soup.find('div', {'class': 'server', 'data-name': 33})
+        episodes = soup.find('div', {'class': 'server hidden', 'data-name': 35})
         episodes = episodes.find_all('li')
 
         if episodes == []:
