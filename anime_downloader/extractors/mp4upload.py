@@ -32,7 +32,7 @@ class MP4Upload(BaseExtractor):
         # Return to non-embed page to collect title
         mp4u_page = helpers.soupify(helpers.get(url).text)
 
-        title = mp4u_page.find('span', {'class': 'dfilename'}).text
+        title = mp4u_page.find('input', {'name': 'fname'})['value']
         title = title[:title.rfind('_')][:title.rfind('.')].replace(' ', '_')
 
         logger.debug('Title is %s' % title)
